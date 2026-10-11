@@ -1,0 +1,10 @@
+kelas,presisi (user's acc.),recall (producer's acc.),f1-score,jumlah
+Sawah,1.0,1.0,1.0,12.0
+Bangunan,1.0,1.0,1.0,12.0
+Mangrove,1.0,0.9167,0.9565,12.0
+Lahan Hijau,0.9231,1.0,0.96,12.0
+Perairan Terbuka (Laut),1.0,1.0,1.0,12.0
+Danau (Ranu),1.0,1.0,1.0,12.0
+accuracy,0.9861,0.9861,0.9861,0.9861
+macro avg,0.9872,0.9861,0.9861,72.0
+weighted avg,0.9872,0.9861,0.9861,72.0

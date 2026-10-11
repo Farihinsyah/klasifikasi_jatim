@@ -1,0 +1,92 @@
+{
+  "judul": "Klasifikasi Penggunaan dan Tutupan Lahan Jawa Timur (Sentinel-2)",
+  "jumlah_kelas": 6,
+  "kelas": [
+    "Sawah",
+    "Bangunan",
+    "Mangrove",
+    "Lahan Hijau",
+    "Perairan Terbuka (Laut)",
+    "Danau (Ranu)"
+  ],
+  "warna": {
+    "Sawah": "#FFD92F",
+    "Bangunan": "#E41A1C",
+    "Mangrove": "#8E44AD",
+    "Lahan Hijau": "#2E7D32",
+    "Perairan Terbuka (Laut)": "#0D47A1",
+    "Danau (Ranu)": "#4FC3F7"
+  },
+  "jumlah_data": 360,
+  "jumlah_training": 288,
+  "jumlah_testing": 72,
+  "per_kelas": {
+    "Sawah": {
+      "total": 60,
+      "training": 48,
+      "testing": 12
+    },
+    "Bangunan": {
+      "total": 60,
+      "training": 48,
+      "testing": 12
+    },
+    "Mangrove": {
+      "total": 60,
+      "training": 48,
+      "testing": 12
+    },
+    "Lahan Hijau": {
+      "total": 60,
+      "training": 48,
+      "testing": 12
+    },
+    "Perairan Terbuka (Laut)": {
+      "total": 60,
+      "training": 48,
+      "testing": 12
+    },
+    "Danau (Ranu)": {
+      "total": 60,
+      "training": 48,
+      "testing": 12
+    }
+  },
+  "model_akhir": "SVM (RBF) (tuning)",
+  "fitur_akhir": [
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6",
+    "B7",
+    "B8",
+    "B8A",
+    "B11",
+    "B12",
+    "NDVI",
+    "NDWI",
+    "MNDWI",
+    "NDBI",
+    "NDRE",
+    "EVI",
+    "SAVI",
+    "BSI"
+  ],
+  "skenario_fitur": "E. Band + indeks (18 fitur)",
+  "akurasi_testing": 0.9861,
+  "selang_kepercayaan_95": 0.027,
+  "kappa_testing": 0.9833,
+  "f1_macro_testing": 0.9861,
+  "periode_citra": [
+    "2025-01-01",
+    "2025-12-31"
+  ],
+  "area_studi": [
+    110.8,
+    -8.9,
+    116.4,
+    -4.9
+  ],
+  "ukuran_sel_m": 480
+}

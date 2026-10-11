@@ -1,0 +1,7 @@
+Model,Jenis,Jumlah fitur,Akurasi CV,Std CV,Akurasi Testing,F1 macro Testing,Model akhir
+SVM (RBF) (tuning),Hasil tuning,18,0.9798,0.0168,0.9861,0.9861,Ya
+Regresi Logistik (tuning),Hasil tuning,18,0.9771,0.016,0.9722,0.9715,
+Extra Trees,Pengaturan awal,18,0.9723,0.0258,0.9722,0.9715,
+Regresi Logistik,Pengaturan awal,18,0.9694,0.0256,0.9722,0.9715,
+Extra Trees (tuning),Hasil tuning,18,0.9694,0.0237,0.9722,0.9715,
+SVM (RBF),Pengaturan awal,18,0.9674,0.0278,0.9722,0.9715,
