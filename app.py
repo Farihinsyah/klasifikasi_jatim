@@ -72,6 +72,14 @@ if halaman == "Ringkasan":
     k6.metric("Kappa", f"{ringkasan['kappa_testing']:.3f}")
     k7.metric("F1 macro", f"{ringkasan['f1_macro_testing']:.3f}")
 
+    ekstra = []
+    if ringkasan.get("akurasi_validasi_spasial") is not None:
+        ekstra.append(f"Akurasi validasi spasial: {ringkasan['akurasi_validasi_spasial']:.1%}.")
+    if ringkasan.get("kesesuaian_worldcover") is not None:
+        ekstra.append(f"Kesesuaian dengan ESA WorldCover (pembanding, dibobot luas kelas): {ringkasan['kesesuaian_worldcover']:.1%}.")
+    if ekstra:
+        st.caption(" ".join(ekstra))
+
     st.caption(
         f"Selang kepercayaan 95% akurasi: ±{ringkasan['selang_kepercayaan_95']:.1%}. "
         f"Periode citra: {ringkasan['periode_citra'][0]} s.d. {ringkasan['periode_citra'][1]}. "
@@ -131,6 +139,35 @@ elif halaman == "Evaluasi Model":
             "Kolom Akurasi Testing hanya sebagai informasi; pemilihan model akhir didasarkan pada Akurasi CV (data training)."
         )
     tampil_gambar("perbandingan_model.png", "Akurasi validasi silang berulang")
+
+    diag = baca_csv("diagnosis_overfitting.csv")
+    if diag is not None:
+        st.subheader("Diagnosis overfitting dan underfitting")
+        st.write(
+            "Perbandingan akurasi latih, validasi silang, testing, dan validasi spasial (poligon berdekatan tidak dipisah antar lipatan). "
+            "Selisih latih-validasi yang besar menandakan kecenderungan overfitting; akurasi validasi yang rendah menandakan underfitting."
+        )
+        if ringkasan.get("diagnosis_model_akhir"):
+            st.caption(f"Model akhir: {ringkasan['diagnosis_model_akhir']}.")
+        st.dataframe(diag, width="stretch", hide_index=True)
+        k1, k2 = st.columns(2)
+        with k1:
+            tampil_gambar("kurva_belajar.png", "Kurva belajar model akhir")
+        with k2:
+            tampil_gambar("kurva_validasi.png", "Kurva validasi model akhir")
+
+    wc = baca_csv("validasi_worldcover.csv")
+    if wc is not None:
+        st.subheader("Pembanding eksternal: ESA WorldCover 2021")
+        st.write(
+            "Sejumlah sel diambil acak dari tiap kelas peta dan dibandingkan dengan kelas mayoritas ESA WorldCover. "
+            "Ini hanya pembanding kewajaran, bukan akurasi sebenarnya (WorldCover juga memiliki galat dan tahunnya berbeda)."
+        )
+        st.dataframe(wc, width="stretch", hide_index=True)
+        silang = baca_csv("validasi_worldcover_silang.csv")
+        if silang is not None:
+            st.caption("Kelas WorldCover yang jatuh pada tiap kelas peta (jumlah sel).")
+            st.dataframe(silang, width="stretch", hide_index=True)
 
     st.subheader("Laporan klasifikasi (data testing)")
     laporan = baca_csv("laporan_klasifikasi.csv")
