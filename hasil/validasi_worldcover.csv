@@ -1,0 +1,8 @@
+Kelas,Kesesuaian dengan WorldCover,Jumlah sel diuji
+Sawah,0.5033,300.0
+Bangunan,0.2,300.0
+Mangrove,0.2667,300.0
+Lahan Hijau,0.9267,300.0
+Perairan Terbuka (Laut),0.9967,300.0
+Danau (Ranu),0.0333,300.0
+Total (dibobot luas),0.7797,1800.0

@@ -88,5 +88,8 @@
     116.4,
     -4.9
   ],
-  "ukuran_sel_m": 480
+  "ukuran_sel_m": 240,
+  "diagnosis_model_akhir": "selisih latih-validasi 1.8%, akurasi validasi spasial 97.3%, diagnosis: seimbang",
+  "akurasi_validasi_spasial": 0.9729,
+  "kesesuaian_worldcover": 0.7797
 }
